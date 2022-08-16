@@ -1,0 +1,21 @@
+<%= render "shared/header" %>
+<%= render "shared/nav"%>
+
+<div class="w-75 mx-auto mt-5">
+<h3 class="text-center">WHAT DO YOU WANT TO SELL</h3>
+
+<div class="float-right">
+<%= render "form", product: @product, class:"float-right"%>
+</div>
+
+<br>
+
+<%
+=begin%>
+ <div>
+  <%= link_to "Back to products", products_path %>
+</div> 
+<%
+=end%>
+
+</div>

@@ -1,0 +1,30 @@
+.navigation {
+    background-color: #1d434e;
+}
+.navigation > div {
+    color: #ffff;
+}
+.search-bar {
+    border-color:#1d434e;
+    border-radius: 50px;
+}
+.search-button {
+   border-color: #1d434e;
+   background-color: #1d434e;
+   border-top-right-radius: 50px;
+   border-bottom-right-radius: 50px;
+   margin-left: -75px;
+}
+
+.function {
+    font-size: 18px;
+    color: #1d434e;
+    margin-right: 8px;
+}
+
+.function:hover {
+    border: 1px solid #1d434e;
+    border-radius: 50px;
+}
+
+/*slider*/

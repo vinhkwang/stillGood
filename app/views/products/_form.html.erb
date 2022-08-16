@@ -1,0 +1,44 @@
+<div class="w-50 float-end mt-5">
+<%= bootstrap_form_with(model: product) do |form| %>
+  <% if product.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.text_field :short_description %>
+  </div>
+
+  <div>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.number_field :price %>
+  </div>
+
+  <div>
+    <%= form.text_field :condition %>
+  </div>
+
+  <div>
+    <%= form.number_field :stock %>
+  </div>
+
+  <div>
+    <button>Preview</button>
+    <%= form.submit "SELL"%>
+  </div>
+<% end %>
+<div>
