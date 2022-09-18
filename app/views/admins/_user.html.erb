@@ -1,0 +1,19 @@
+<div>
+    <table>
+       <tr>
+         <td>ID</td>
+         <td>Name</td>
+         <td>Email</td>
+         <td>Phone number</td>
+       </tr>
+       <% @users.each |user| %>
+       <tr>
+            <td><%= user.id%></td>
+            <td><%= user.name%></td>
+            <td><%= user.email %></td>
+            <td><%= user.phoneNumber %></td>
+        </tr>
+        <% end %>
+       
+    </table>
+</div>

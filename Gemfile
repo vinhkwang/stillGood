@@ -43,7 +43,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
 
 # Use Sass to process CSS
-# gem 'sass-rails'
+gem 'sass-rails'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -71,9 +71,13 @@ group :test do
   gem 'webdrivers'
 end
 
-gem 'bootstrap'
+gem 'byebug'
+gem 'bootstrap', '~> 5.2.0'
 gem 'bootstrap_form', '~> 5.1'
+gem 'carrierwave', '~> 2.0'
 gem 'devise'
 gem 'font-awesome-sass'
 gem 'jquery-rails'
+gem 'jsbundling-rails'
 gem 'sassc-rails'
+gem 'mini_magick'

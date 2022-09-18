@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Product attachments</h1>
+
+<div id="product_attachments">
+  <% @product_attachments.each do |product_attachment| %>
+    <%= render product_attachment %>
+    <p>
+      <%= link_to "Show this product attachment", product_attachment %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New product attachment", new_product_attachment_path %>

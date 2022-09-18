@@ -1,4 +1,4 @@
-<div class="w-50 float-end mt-5">
+<div class="w-100 mt-5">
 <%= bootstrap_form_with(model: product) do |form| %>
   <% if product.errors.any? %>
     <div style="color: red">
@@ -11,34 +11,58 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="w-100 d-flex flex-row justify-content-around">
+   <div class="w-50 text-center">
+      <label class="uploader">
+     <i class="fa-solid fa-images" style="font-size: 60px;margin-top: 120px; color: #1d434e"></i>
+     <div class="text-muted mt-2">Add your's product images here</div>
+      <%= form.fields_for :product_attachments do |p| %>
+         <div class="field">
+           <%= p.file_field :product_image, multiple: true, name: "product[product_attachments_attributes][][product_image]", style: "display: none"%>
+         </div>
+       <% end %>
+      </label>
+   </div>
+   
+   <div class="w-50">
+   <div>
+     <%= form.select :category, Category.pluck(:title, :id), floating: true, hide_label: true, include_blank: "Select a category"%>
+  </div> 
 
   <div>
-    <%= form.text_field :title %>
+     <%= form.text_field :size, floating: true, style:"#{'display:none' if form.object.category == ''}" %>
   </div>
 
   <div>
-    <%= form.text_field :short_description %>
+    <%= form.text_field :title, floating: true %>
+  </div> 
+
+  <div>
+    <%= form.text_field :short_description, floating: true %>
   </div>
 
   <div>
-    <%= form.text_field :description %>
+    <%= form.text_area :description , style:"resize: none;", floating: true%>
   </div>
 
   <div>
-    <%= form.number_field :price %>
+    <%= form.number_field :price, floating: true %>
   </div>
 
   <div>
-    <%= form.text_field :condition %>
+    <%= form.text_field :condition, floating: true %>
   </div>
 
   <div>
-    <%= form.number_field :stock %>
+    <%= form.number_field :stock, floating: true %>
   </div>
 
   <div>
-    <button>Preview</button>
-    <%= form.submit "SELL"%>
+    <%= form.submit "Preview" ,extra_class: "preview-button"%>
+    <%= form.submit "Public for Sale", extra_class: "sale-button"%>
+  </div>
+  </div>
   </div>
 <% end %>
 <div>

@@ -1,58 +1,53 @@
-<div class="text-center">
-<h2>Sign up</h2>
+<div class="register-bg">
+<div class="w-25 mx-auto register-box p-5 ">
+<div class="text-center"><%=image_tag("logo.png") %></div>
+<h3 class="text-center" style="color: #1d434e;">Create an account</h3>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", floating: true%>
   </div>
 
-   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+   <div>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", floating: true %>
   </div>
 
-  <div class="field">
-    <%= f.label :gender %>
-    <%= f.text_field :gender, autofocus: true, autocomplete: "gender" %>
+  <div>
+    <%= f.text_field :gender, autofocus: true, autocomplete: "gender", floating: true %>
   </div>
 
-  <div class="field">
-    <%= f.label :day_of_birth %>
-    <%= f.date_field :day_of_birth, autofocus: true, autocomplete: "gender" %>
+  <div>
+    <%= f.date_field :day_of_birth, autofocus: true, autocomplete: "gender", floating: true %>
   </div>
 
-  <div class="field">
-    <%= f.label :phone_number %>
-    <%= f.telephone_field :phone_number, autofocus: true, autocomplete: "phone-number" %>
+  <div>
+    <%= f.telephone_field :phone_number, autofocus: true, autocomplete: "phone-number", floating: true %>
   </div>
 
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+  <div>
+    <%= f.text_field :address, autofocus: true, autocomplete: "address", floating: true %>
   </div>
 
 
-  <div class="field">
-    <%= f.label :password %>
+  <div>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %>
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", floating: true %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", floating: true %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Create account", extra_class: "authen-button" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="text-center"><%= render "devise/shared/links" %></div>
 
+</div>
 </div>

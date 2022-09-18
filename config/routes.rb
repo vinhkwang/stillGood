@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :product_attachments
   resources :orders
   resources :posts
   resources :categories
@@ -7,4 +8,6 @@ Rails.application.routes.draw do
     registrations: 'auth/registrations'
   }
   root 'home#index'
+
+  resources :admins
 end

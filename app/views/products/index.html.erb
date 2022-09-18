@@ -1,14 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Products</h1>
-
 <div id="products">
   <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
+    <%
+=begin%>
+ <div><%=image_tag(product.product_images[0], width: 50) if product.product_images.present?%></div> 
+<%
+=end%>
+    <div><%= product.title %></div>
+    <div><%= product.price %></div>
+
   <% end %>
 </div>
 
-<%= link_to "New product", new_product_path %>

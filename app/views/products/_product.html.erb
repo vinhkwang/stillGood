@@ -1,5 +1,13 @@
 <div id="<%= dom_id product %>">
   <p>
+    <%= image_tag  @product.product_attachments[0] %>
+    <%= @product_attachments.each do |p| %>
+        <%= p %>
+        <%= image_tag p.product_image_url, style: "max-width: 200px; max-height: 200px" %>
+    <% end %>
+  </p>
+
+  <p>
     <strong>Title:</strong>
     <%= product.title %>
   </p>

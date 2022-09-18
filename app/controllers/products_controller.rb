@@ -8,11 +8,14 @@ class ProductsController < ApplicationController
   end
 
   # GET /products/1 or /products/1.json
-  def show; end
+  def show
+    @product_attachments = @product.product_attachments.all
+  end
 
   # GET /products/new
   def new
     @product = Product.new
+    @product_attachment = @product.product_attachments.build
   end
 
   # GET /products/1/edit
@@ -24,11 +27,14 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
+        params[:product_attachments]['product_image'].each do |a|
+          @product_attachment = @product.product_attachments.create!(product_image: a)
+        end
+
         format.html { redirect_to product_url(@product), notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @product }
+        
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -38,10 +44,8 @@ class ProductsController < ApplicationController
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to product_url(@product), notice: 'Product was successfully updated.' }
-        format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -65,6 +69,7 @@ class ProductsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def product_params
-    params.require(:product).permit(:title, :short_description, :description, :price, :condition, :stock)
+    params.require(:product).permit(:user_id, :category_id, :title, :short_description, :description, :price, :condition,
+                                    :stock, product_attachments_attributes: [:id, :product_id, :product_image])
   end
 end

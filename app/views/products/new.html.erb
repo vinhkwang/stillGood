@@ -2,7 +2,7 @@
 <%= render "shared/nav"%>
 
 <div class="w-75 mx-auto mt-5">
-<h3 class="text-center">WHAT DO YOU WANT TO SELL</h3>
+<h3 class="text-center" style="color: #1d434e;">WHAT DO YOU WANT TO SELL?</h3>
 
 <div class="float-right">
 <%= render "form", product: @product, class:"float-right"%>
@@ -10,12 +10,16 @@
 
 <br>
 
-<%
+ <%
 =begin%>
  <div>
   <%= link_to "Back to products", products_path %>
-</div> 
+</div>  
 <%
 =end%>
 
+
 </div>
+
+<%= render "shared/footer"%>
+
